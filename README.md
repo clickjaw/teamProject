@@ -16,7 +16,6 @@ tyler - building something and smooth
 
 
 In which professional competencies do you each want to develop greater strength?
-
 jordan - seeing how cooperation affects a group
 tyler - growing in my javascript capabilities
 
@@ -62,4 +61,3 @@ What is your strategy for ensuring everyone’s voice is heard?
 How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up?
 
 PREP 2 PREP 2 PREP 2 PREP 2 PREP 2
-
