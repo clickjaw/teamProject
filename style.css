@@ -1,6 +1,6 @@
 body{
     background-color: black;
-    color: white;
+    color: green;
     display: grid;
     justify-content: center;
     font-family: 'Press Start 2P', cursive;
@@ -39,7 +39,7 @@ background-color: black;
     left: 10px;
     font-size: 15px;
     font-family: inherit;
-    line-height: 130%;
+    line-height: 150%;
     padding: 5px;
 
 }
