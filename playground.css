@@ -60,9 +60,22 @@ body {
   width:800px;
   height: 500px;
   z-index:2;
+  animation-name:monsterAni;
+  animation-duration: 3s;
+  animation-iteration-count: 2;
+  /* animation: circle 6s linear infinite; */
   /* opacity:0.9; */
   /* background-color:blue; */
 }
+
+@keyframes monsterAni{
+  0%   {left:0px; top:0px;}
+  25%  {left:20px; top:0px;}
+  50%  {left:20px; top:20px;}
+  75%  {left:10px; top:20;}
+  100% {left:0px; top:0px;}
+}
+
 #castleDiv {
   z-index:1;
   opacity:0.9;
