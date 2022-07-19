@@ -24,3 +24,4 @@ function pickQuestion(){
     questionPic.setAttribute("alt", "Cave");
 }
 pickQuestion();
+
