@@ -20,8 +20,11 @@ function pickQuestion(){
     let pickedQuestion = allObjects[rando];
     console.log(pickedQuestion.q);
     console.log(pickedQuestion.correctAnswer);
-    questionPic.setAttribute("src", pickedQuestion.image);
-    questionPic.setAttribute("alt", "Cave");
+    //questionPic.setAttribute("src", pickedQuestion.image);
+    //questionPic.setAttribute("alt", "Cave");
 }
 pickQuestion();
-
+let test = document.querySelector("pre");
+test.addEventListener('click', function(){
+    test.innerHTML = 
+})
