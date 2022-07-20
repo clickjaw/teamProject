@@ -20,7 +20,7 @@ console.log("Bop");
 //preDoc.innerHTML = castleOutside;
 castleDiv.appendChild(preDoc);
 
-function monster(q, answer, image){
+function Monster(q, answer, image){
     this.q = q;
     this.correctAnswer = answer;
     this.image = image;
@@ -33,14 +33,14 @@ let introPics = [];
 let monsterObjects = [];
 let q1 = new Intro(castleOutside, "A dark castle towers over you. This is where you stop The Champion's plans and vanquish him once and for all.");
 let q2 = new Intro("(Scenario goes here) What do you do?", "");
-let m1 = new monster("You encounter a skeleton! He reels back for a swing with his axe!", "", "");
-let m2 = new monster("(Scenario goes here) What do you do?", "hide", "");
-let m3 = new monster("(Scenario goes here) What do you do?", "hide", "");
-let m4 = new monster("(Scenario goes here) What do you do?", "hide", "");
-let m5 = new monster("(Scenario goes here) What do you do?", "hide", "");
-let m6 = new monster("(Scenario goes here) What do you do?", "hide", "");
-let m7 = new monster("(Scenario goes here) What do you do?", "hide", "");
-let m8 = new monster("(Scenario goes here) What do you do?", "hide", "");
+let m1 = new Monster("You encounter a skeleton! He reels back for a swing with his axe!", "", "");
+let m2 = new Monster("(Scenario goes here) What do you do?", "hide", "");
+let m3 = new Monster("(Scenario goes here) What do you do?", "hide", "");
+let m4 = new Monster("(Scenario goes here) What do you do?", "hide", "");
+let m5 = new Monster("(Scenario goes here) What do you do?", "hide", "");
+let m6 = new Monster("(Scenario goes here) What do you do?", "hide", "");
+let m7 = new Monster("(Scenario goes here) What do you do?", "hide", "");
+let m8 = new Monster("(Scenario goes here) What do you do?", "hide", "");
 //Pushing all created objects/strings to their respective arrays
 introPics.push(q1);
 introPics.push(q2);
@@ -63,7 +63,7 @@ function pickQuestion(){
 }
 castleDiv.addEventListener('click', function(){
     castleDiv.innerHTML = " ";
-    castleDiv.innerHTML = bigCastle;
+    castleDiv.innerHTML = "<pre>" + bigCastle + "</pre>";
     console.log("Ree");
     
 })
