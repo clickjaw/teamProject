@@ -93,15 +93,6 @@ body {
   /* background-color:red; */
 }
 
-#questionBox {
-  display: grid;
-  justify-content: center;
-  width: 800px;
-  height: 200px;
-  border: dashed 5px green;
-  background-color: black;
-}
-
 @keyframes flicker {
   0% {
     opacity: 0.27861;
@@ -288,4 +279,32 @@ body {
 }
 .crt {
   animation: textShadow 1.7s infinite;
+}
+
+#questionBox {
+  display: grid;
+  justify-content: center;
+  position: relative;
+  width: 800px;
+  height: 200px;
+  border: dashed 5px green;
+  background-color: black;
+}
+
+#inputBox{
+  background-color:red;
+  position:absolute;
+  right: 20px;
+  bottom:20px;
+  font-family: inherit;
+  text-decoration: none;
+  background-color:black;
+}
+
+.button{
+  background-color: black;
+  font-family:inherit;
+  color:greenyellow;
+  border: dashed 3px green;
+  padding: 5px;
 }
