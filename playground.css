@@ -1,4 +1,4 @@
-/* body {
+body {
   background-color: black;
   color: white;
   display: grid;
@@ -64,9 +64,9 @@
   animation-name:monsterAni;
   animation-duration: 3s;
   animation-iteration-count: 10;
-  /* animation: circle 6s linear infinite; */
-  /* opacity:0.9; */
-  /* background-color:blue; */
+  animation: circle 6s linear infinite;
+  opacity:0.9;
+  background-color:blue;
 }
 
 @keyframes monsterAni{
