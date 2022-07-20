@@ -5,7 +5,11 @@
 // scenario
 // correct answer
 let questionPic = document.getElementById("question-pic");
-let qBox = document.getElementById("qBox");
+let questionBox = document.getElementById("questionBox");
+let castleDiv = document.getElementById("castleDiv");
+let preDoc = document.getElementById("preDoc");
+let scoreDiv = document.getElementById("scoreDiv");
+let bigCastle = String.raw`  ',                                                        ,'<br>  ',                                                    ,'<br>    :,                                                ,:<br>    : :,____________________________________________,: :<br>    : :-:       ..........        ..........       :-: :<br>    : :-:                   .    .'                :-: :<br>    : :-:    dHHHHHHHHHHHb        dHHHHHHHHHHHb    :-: :<br>    : :-:   dHHHHHHHHHHHHHb      dHHHHHHHHHHHHHb   :-: :<br>    : :-:   HHHHHHHHHHHHHHH      HHHHHHHHHHHHHHH   :-: :<br>    : :-:    HHHHHHHHHHHHHF       HHHHHHHHHHHHHF   :-: :<br>    : :-:     HHHHHHHHHF''.'.oo.'.'' HHHHHHHHHF    :-: :<br>    : :-:'.            ..'.dHHHHb.'..            .':-: :<br>    : :-:  ''...   ..''   HHHF'HHH  ''..   ...'' :-: :<br>    : :-:     / '''/      'HF  'HF      \\'''\     :-: :<br>    : :-:    /  .    ..              ..    .  \    :-: :<br>    : :/:    :.' '.''/\'............'/\''.' '.:    :\: :<br>    : :/:     :   :\/::\/\/\/^^\/\/\/::\/:   :     :\: :<br>    : :/:     :   ::::/^^^^^^^^^^^^^^\::::   :     :\: :<br>    : :/:     :   :::/^^^^^^^^^^^^^^^^\:::   :     :\: :<br>    : :/:     :   ::/^^^^^^^^^^^^^^^^^^\::   :     :\: :<br>    : :/:     :   :/^^^^^^^^^^^^^^^^^^^^\:   :     :\: :<br>    : :/:     '.  :AAAAAAAAAAAAAAAAAAAAAA:  .'     :\: :<br>    : :/:     :: :'                       :' :     :\: :<br>    : :/:     ::AAAAAAAAAAAAAAAAAAAAAAAAAAAA :     :\: :<br>    : :/:_____:/                            \:_____:\: :<br>    : :/:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \: :<br>    : ://                                          \\: :<br>    : :/                                            \: :<br>    :  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  :<br>    : /                                              \ :<br>    :/                                                \:<br>     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `;
 
 //starter images
 let castleGates = String.raw`  ',                                                        ,'<br>  ',                                                    ,'<br>    :,                                                ,:<br>    : :,____________________________________________,: :<br>    : :-:       ..........        ..........       :-: :<br>    : :-:                   .    .'                :-: :<br>    : :-:    dHHHHHHHHHHHb        dHHHHHHHHHHHb    :-: :<br>    : :-:   dHHHHHHHHHHHHHb      dHHHHHHHHHHHHHb   :-: :<br>    : :-:   HHHHHHHHHHHHHHH      HHHHHHHHHHHHHHH   :-: :<br>    : :-:    HHHHHHHHHHHHHF       HHHHHHHHHHHHHF   :-: :<br>    : :-:     HHHHHHHHHF''.'.oo.'.'' HHHHHHHHHF    :-: :<br>    : :-:'.            ..'.dHHHHb.'..            .':-: :<br>    : :-:  ''...   ..''   HHHF'HHH  ''..   ...'' :-: :<br>    : :-:     / '''/      'HF  'HF      \\'''\     :-: :<br>    : :-:    /  .    ..              ..    .  \    :-: :<br>    : :/:    :.' '.''/\'............'/\''.' '.:    :\: :<br>    : :/:     :   :\/::\/\/\/^^\/\/\/::\/:   :     :\: :<br>    : :/:     :   ::::/^^^^^^^^^^^^^^\::::   :     :\: :<br>    : :/:     :   :::/^^^^^^^^^^^^^^^^\:::   :     :\: :<br>    : :/:     :   ::/^^^^^^^^^^^^^^^^^^\::   :     :\: :<br>    : :/:     :   :/^^^^^^^^^^^^^^^^^^^^\:   :     :\: :<br>    : :/:     '.  :AAAAAAAAAAAAAAAAAAAAAA:  .'     :\: :<br>    : :/:     :: :'                       :' :     :\: :<br>    : :/:     ::AAAAAAAAAAAAAAAAAAAAAAAAAAAA :     :\: :<br>    : :/:_____:/                            \:_____:\: :<br>    : :/:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \: :<br>    : ://                                          \\: :<br>    : :/                                            \: :<br>    :  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  :<br>    : /                                              \ :<br>    :/                                                \:<br>     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `;
@@ -57,29 +61,66 @@ let bigDoor =
  -'"'                   |______|_|_______________|_|_________________________
  
 `;
+let clicks = 0;
+console.log(clicks)
 
-
-document.getElementById('monsterDiv').innerHTML = "<pre>" + skeleton + "</pre>";
+//document.getElementById('monsterDiv').innerHTML = "<pre>" + skeleton + "</pre>";
 document.getElementById('castleDiv').innerHTML = "<pre>" + castleHallway + "</pre>";
 
-function Question(q, answer, image){
+function Monster(q, answer, image){
     this.q = q;
     this.correctAnswer = answer;
     this.image = image;
 }
-let allObjects = [];
-let q1 = new Question("You're in a cave and hear large footsteps approaching. What do you do?", "hide", bigCastle);
-allObjects.push(q1);
-function pickQuestion(){
-    let rando = Math.floor(Math.random()*allObjects.length);
-    let pickedQuestion = allObjects[rando];
-    console.log(pickedQuestion.q);
-    console.log(pickedQuestion.correctAnswer);
-    //questionPic.setAttribute("src", pickedQuestion.image);
-    //questionPic.setAttribute("alt", "Cave");
+function Intro(ascii, text){
+    this.ascii = ascii;
+    this.text = text;
 }
-pickQuestion();
-let test = document.querySelector("pre");
-test.addEventListener('click', function(){
-    test.innerHTML = 
+let introPics = [];
+let monsterObjects = [];
+let q1 = new Intro(castleOutside, "A dark castle towers over you. This is where you stop The Champion's plans and vanquish him once and for all.");
+let q2 = new Intro(castleGates, "As you approach, you hear the skitters and screeches of monsters within. Win or lose, this is your battle to fight.");
+let m1 = new Monster("You encounter a skeleton! He reels back for a swing with his axe!", "", skeleton);
+let m2 = new Monster("(Scenario goes here) What do you do?", "hide", reaper);
+let m3 = new Monster("(Scenario goes here) What do you do?", "hide", hornMonster);
+let m4 = new Monster("(Scenario goes here) What do you do?", "hide", demonMonster);
+let m5 = new Monster("(Scenario goes here) What do you do?", "hide", cyclops);
+let m6 = new Monster("(Scenario goes here) What do you do?", "hide", bigEye);
+let m7 = new Monster("(Scenario goes here) What do you do?", "hide", bigBat);
+let m8 = new Monster("(Scenario goes here) What do you do?", "hide", );
+//Pushing all created objects/strings to their respective arrays
+introPics.push(q1);
+introPics.push(q2);
+monsterObjects.push(m1);
+monsterObjects.push(m2);
+monsterObjects.push(m3);
+monsterObjects.push(m4);
+monsterObjects.push(m5);
+monsterObjects.push(m6);
+monsterObjects.push(m7);
+monsterObjects.push(m8);
+
+function pickQuestion(){
+    console.log("Play?");
+    let rando = Math.floor(Math.random()*monsterObjects.length);
+    let pickedQuestion = monsterObjects[rando];
+    castleDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
+    questionBox.innerHTML = pickedQuestion.q;
+    console.log(pickedQuestion.correctAnswer);
+}
+castleDiv.addEventListener('click', function(){
+    castleDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+    questionBox.innerHTML = q2.text;
+    clicks ++;
+    console.log(clicks);
+    if (clicks >= 2){
+        pickQuestion();
+    }
 })
+
+
+
+castleDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
+questionBox.innerHTML = q1.text;
+
+//pickQuestion();
