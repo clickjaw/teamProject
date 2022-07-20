@@ -62,7 +62,8 @@ let bigDoor =
  
 `;
 let clicks = 0;
-let monsterDiv = document.getElementById("monsterDiv")
+let monsterDiv = document.getElementById("monsterDiv");
+let questionDiv = document.getElementById("questionDiv");
 console.log(clicks)
 
 //document.getElementById('monsterDiv').innerHTML = "<pre>" + skeleton + "</pre>";
@@ -106,12 +107,12 @@ function pickQuestion(){
     let rando = Math.floor(Math.random()*monsterObjects.length);
     let pickedQuestion = monsterObjects[rando];
     monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
-    questionBox.innerHTML = pickedQuestion.q;
+    questionDiv.innerHTML = pickedQuestion.q;
     console.log(pickedQuestion.correctAnswer);
 }
 monsterDiv.addEventListener('click', function(){
     monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
-    questionBox.innerHTML = q2.text;
+    questionDiv.innerHTML = q2.text;
     clicks ++;
     console.log(clicks);
     if (clicks >= 2){
@@ -122,6 +123,6 @@ monsterDiv.addEventListener('click', function(){
 
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
-questionBox.innerHTML = q1.text;
+questionDiv.innerHTML = q1.text;
 
 //pickQuestion();
