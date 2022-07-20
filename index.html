@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" a href = "style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Dancing+Script&family=Fascinate&family=Permanent+Marker&family=Press+Start+2P&family=Splash&family=Yellowtail&display=swap" rel="stylesheet">
-    <title>test site</title>
-</head>
-<body>
-    <div id = "artBox">
-        <div id = "highScoreDiv">High Score</div>
-        <div id = "castleDiv">
-        <pre id = "preDoc"></pre>
-        </div>
-                 <div id = "scoreDiv">Score</div>
-    </div><br>
-    <div id = "questionBox"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" a href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display&family=Dancing+Script&family=Fascinate&family=Permanent+Marker&family=Press+Start+2P&family=Splash&family=Yellowtail&display=swap"
+      rel="stylesheet"
+    />
+    <title>Fantasy64</title>
     
-</body>
-<script src="app.js"></script>
-</html></html>
+  </head>
+  <div class="crt">
+    <body>
+      <div id="artBox">
+        <div id="highScoreDiv" class="highScoreNumberSize">High Score</div>
+        <div id="castleDiv"></div>
+        <div id="monsterDiv"></div>
+
+        <div id="scoreDiv" class="scoreNumberSize">Score</div>
+      </div>
+      <br />
+      <div id="questionBox">
+        <div id="questionDiv">
+          You wander into a dank, unlit hallway. From out of the darkness steps
+          the Skeleton King!
+        </div>
+        <div id="answerDiv">(a) Strike him down (b) Run</div>
+        <form id="inputForm">
+          <input type="text" id="inputBox" name="inputBox" />
+          <div id="buttonBox">
+            <button type="submit" class="button" id="enterButton">enter</button>
+            <button type="button" class="button" id="nextButton">next</button>
+          </div>
+        </form>
+      </div>
+    </body>
+  </div>
+  <script src="app.js"></script>
+</html>
