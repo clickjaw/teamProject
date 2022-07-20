@@ -9,7 +9,7 @@ body {
 
 #scoreDiv {
   border: dashed 2px green;
-  color: green;
+  color: greenyellow;
   background-color: black;
   position: absolute;
   width: 120px;
@@ -23,7 +23,7 @@ body {
 }
 #highScoreDiv {
   border: dashed 2px green;
-  color: green;
+  color: greenyellow;
   background-color: black;
   position: absolute;
   width: 120px;
@@ -291,8 +291,51 @@ body {
   background-color: black;
 }
 
+#questionDiv{
+  position:absolute;
+  border: dashed 3px green;
+  color:greenyellow;
+  text-align: justify;
+  max-width:500px;
+  max-height:100px;
+  padding: 10px;
+  overflow:auto;
+  left:10px;
+  top:10px;
+  line-height: 175%;
+
+
+}
+#answerDiv{
+  position: absolute;
+  border: dashed 3px green;
+  color:greenyellow;
+  text-align:center;
+  min-width:500px;
+  max-width:500px;
+  max-height: 100px;
+  padding:10px;
+  bottom: 10px;
+  left: 10px;
+
+
+
+}
 #inputBox{
-  background-color:red;
+  background-color:black;
+  position:absolute;
+  right: 20px;
+  bottom: 70px;
+  width:158px;
+  height: 25px;
+  overflow:auto;
+  color:greenyellow;
+  text-decoration: none;
+  border: dashed 3px green;
+  font-size: 24px;
+  font-family: inherit;
+}
+#buttonBox{
   position:absolute;
   right: 20px;
   bottom:20px;
