@@ -79,8 +79,8 @@ function Intro(ascii, text){
 }
 let introPics = [];
 let monsterObjects = [];
-let q1 = new Intro(castleOutside, "A dark castle towers over you. This is where you stop The Champion's plans and vanquish him once and for all.");
-let q2 = new Intro(castleGates, "As you approach, you hear the skitters and screeches of monsters within. Win or lose, this is your battle to fight.");
+let q1 = new Intro(castleOutside, "Out of the Unerbittlich Forest our Champion approaches Castle Nihil. Forged in the shadows of the endless night, he has come for his Eternity!");
+let q2 = new Intro(castleGates, "Approaching the gates wet with untouched dew, our Champion takes in the stench of those who came before. Draped in the cloak of night he strides into the certain doom of Castle Nihil.");
 let m1 = new Monster("You encounter a skeleton! He reels back for a swing with his axe!", "", skeleton);
 let m2 = new Monster("(Scenario goes here) What do you do?", "hide", reaper);
 let m3 = new Monster("(Scenario goes here) What do you do?", "hide", hornMonster);
