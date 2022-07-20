@@ -59,8 +59,8 @@ let bigDoor =
 `;
 
 
-document.getElementById('monsterDiv').innerHTML = "<pre>" + reaper + "</pre>";
-document.getElementById('castleDiv').innerHTML = "<pre>" + bigDoor + "</pre>";
+document.getElementById('monsterDiv').innerHTML = "<pre>" + skeleton + "</pre>";
+document.getElementById('castleDiv').innerHTML = "<pre>" + castleHallway + "</pre>";
 
 function Question(q, answer, image){
     this.q = q;
