@@ -425,7 +425,17 @@ body {
   background-color: black;
 }
 
-.button {
+ #nextButton{
+   position: absolute;
+   right: 10px;
+   top: 10px;
+ }
+ 
+ 
+ 
+ 
+.button{
+
   background-color: green;
   font-family: inherit;
   color: black;

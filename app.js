@@ -111,36 +111,40 @@ let highScore = 0;
 
 
 function pickQuestion() {
-    console.log("Play?");
-    let rando = Math.floor(Math.random() * monsterObjects.length);
-    let pickedQuestion = monsterObjects[rando];
-    answerDiv.innerHTML = pickedQuestion.choices;
-    monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
-    questionDiv.innerHTML = pickedQuestion.q;
-    console.log(pickedQuestion.correctAnswer);
+    //testing out next button
+
+    let nextButton = document.getElementById('nextButton');
+    nextButton.addEventListener('click', function () {
+
+        console.log(clicks);
+        console.log("Play?");
+        let rando = Math.floor(Math.random() * monsterObjects.length);
+        let pickedQuestion = monsterObjects[rando];
+        answerDiv.innerHTML = pickedQuestion.choices;
+        monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
+        questionDiv.innerHTML = pickedQuestion.q;
+        console.log(pickedQuestion.correctAnswer);
+
+        return pickedQuestion;
+    })
+
+
 
     enterButton.addEventListener('click', function () {
-        clicks = 1;
+        
+        // testing to see if clicks are set back to zero
+        let rando = Math.floor(Math.random() * monsterObjects.length);
+        let pickedQuestion = monsterObjects[rando];
 
-        //below reads the value, for some reason the variable "input" (line 105) doesn't read the value.
+        if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
 
-        if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
             console.log("finally fucking works");
         };
 
-        // below looks a mess but it works.
-        //only issue is the clicks accumulate then register in the current score
-        //first click one point
-        //click a monster to move on then answer 2 points
-        //click a monster to move on then answer 3 points
-        //the issue is with the clicks and not the logic, I think.
 
-        // Not using ++ seemed to have fixed the problem
-        // And had to use the above comparison to get a value out and read
-        // 
+        //checks the input for right answer
+        if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
 
-        //if (input == pickedQuestion.correctAnswer) {
-        if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer){
             currentScore = currentScore + 1;
             console.log("Here" + currentScore);
             console.log("Here" + clicks);
@@ -167,6 +171,7 @@ monsterDiv.addEventListener('click', function () {
     console.log(clicks);
     if (clicks >= 2) {
         pickQuestion();
+        clicks = null;
     }
 });
 
@@ -189,7 +194,9 @@ reset.addEventListener('click', function (e) {
     e.preventDefault();
     clicks = 0;
     currentScore = 0;
+    // clicks = 0;
     document.getElementById('scoreDivNumber').textContent = "0";
+    document.getElementById('inputBox').value = '';
 
     //brings the first image back up when reset clicked
     monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
@@ -197,22 +204,14 @@ reset.addEventListener('click', function (e) {
 
     //doesn't bring the second image up. Doesn't fully restart images
     monsterDiv.addEventListener('click', function () {
-        //clicks++;
-        console.log( "Yo" + clicks);
-        if (clicks == 1){
-        monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
-        questionDiv.innerHTML = q2.text;
-        }
-        console.log(clicks);
-        if (clicks >= 2) {
-            //pickQuestion();
-        }
-    });
+        
+        clicks = null;
+
+    })
 })
 
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
 questionDiv.innerHTML = q1.text;
-
 
 //pickQuestion();
