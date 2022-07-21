@@ -21,8 +21,6 @@ jordan - seeing how cooperation affects a group
 tyler - growing in my javascript capabilities
 
 Knowing that every person in your team needs to understand all aspects of the project, how do you plan to approach the day-to-day work?
-<<<<<<< HEAD
-=======
 
 code during class time.
 
@@ -66,4 +64,3 @@ How will you ensure that you are creating a safe environment where everyone feel
 PREP 2 PREP 2 PREP 2 PREP 2 PREP 2
 
 PREP 3 PREP 3 PREP 3 PREP 3 PREP 3 PREP 3 PREP 3 PREP 3 PREP 3
->>>>>>> 10cb1d842d57726f2c9a24822a2c6fc6d3049f8e
