@@ -73,6 +73,7 @@ function Monster(q, correctanswer, choices, image) {
     this.correctAnswer = correctanswer;
     this.choices = choices;
     this.image = image;
+    this.background = background;
 }
 function Intro(ascii, text) {
     this.ascii = ascii;
@@ -110,11 +111,23 @@ let currentScore = 0;
 let highScore = 0;
 
 
+
+//connecting the input button and enter button - reset button is further down that resets the score
+let input = document.getElementById('inputBox').value;
+let enterButton = document.getElementById('enterButton');
+
+let currentScore = 0;
+let highScore = 0;
+
+
 function pickQuestion() {
     console.log("Play?");
     let rando = Math.floor(Math.random() * monsterObjects.length);
     let pickedQuestion = monsterObjects[rando];
     answerDiv.innerHTML = pickedQuestion.choices;
+
+    //it isn't random backgrounds but they do, in a way, match the "scenario". Gives it variation.
+    castleDiv.innerHTML = "<pre>" + pickedQuestion.background + "</pre>";
     monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
     questionDiv.innerHTML = pickedQuestion.q;
     console.log(pickedQuestion.correctAnswer);
@@ -126,13 +139,13 @@ function pickQuestion() {
         if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
             console.log("finally fucking works");
         };
-
         // below looks a mess but it works.
         //only issue is the clicks accumulate then register in the current score
         //first click one point
         //click a monster to move on then answer 2 points
         //click a monster to move on then answer 3 points
         //the issue is with the clicks and not the logic, I think.
+
 
         // Not using ++ seemed to have fixed the problem
         // And had to use the above comparison to get a value out and read
@@ -151,7 +164,6 @@ function pickQuestion() {
         //    }
         //}
     })
-
 }
 
 
@@ -164,6 +176,7 @@ monsterDiv.addEventListener('click', function () {
         console.log(clicks);
     }
     if (clicks >= 2) {
+
         pickQuestion();
     }
 })
@@ -208,8 +221,34 @@ reset.addEventListener('click', function () {
     })
 })
 
+//using the next button to reset reset reset reset reset 
+let reset = document.getElementById('resetButton');
+reset.addEventListener('click', function(){
+    currentScore = 0;
+    document.getElementById('scoreDivNumber').textContent = "0";
+    document.getElementById('inputBox').value = "";
+
+//brings the first image back up when reset clicked
+    monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
+    questionDiv.innerHTML = q1.text;
+    castleDiv.innerHTML = null;
+
+//doesn't bring the second image up. Doesn't fully restart images
+    monsterDiv.addEventListener('click', function(){
+        monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+        questionDiv.innerHTML = q2.text;
+        clicks = 0;
+        clicks ++;
+        console.log(clicks);
+        if (clicks >= 2){
+            pickQuestion();
+        }
+    })
+})
+
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
+castleDiv.innerHTML =  null;  //"<pre>" + + "</pre>";
 questionDiv.innerHTML = q1.text;
 
 //pickQuestion();
