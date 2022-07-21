@@ -88,7 +88,7 @@ let m3 = new Monster("The cold stone is scraped by the battle hardened horns of 
 let m4 = new Monster("The snarling is louder. The breath of the Demon Lord is lit by the moon's light. Should our champion confront the beast or hide?", "hide", "(confront) (hide)", demonMonster);
 let m5 = new Monster("The lumbering sound of the cyclop's step shakes the halls around Nihil. Does our champion swing for it's knees or run through its legs?", "swing", "(run) (swing)", cyclops);
 let m6 = new Monster("The Abyss of the Known Unknown opens the Eye of All. The brightness of its iris illuminates the room. Does our champion approach in hopes of a vision of destiny or lie still in the shadows of Castle Nihil? ", "approach", "(lie still) (approach)", bigEye);
-let m7 = new Monster("The shreik of the eternally nocturnal Fladdermus pierces through the walls of Nihil, alerting all who live that certain doom is upon them. Does our champion battle this wretched foe or dodge it's continuous swoops?", "dodge", "(dodge) (battle)", bigBat);
+let m7 = new Monster("The shriek of the eternally nocturnal Fladdermus pierces through the walls of Nihil, alerting all who live that certain doom is upon them. Does our champion battle this wretched foe or dodge it's continuous swoops?", "dodge", "(dodge) (battle)", bigBat);
 // let m8 = new Monster("(Scenario goes here) What do you do?", "hide", );
 //Pushing all created objects/strings to their respective arrays
 introPics.push(q1);
@@ -115,7 +115,8 @@ function pickQuestion() {
 
     let nextButton = document.getElementById('nextButton');
     nextButton.addEventListener('click', function () {
-
+        let final = false;
+        if (monsterObjects.length>0){
         console.log(clicks);
         console.log("Play?");
         let rando = Math.floor(Math.random() * monsterObjects.length);
@@ -124,8 +125,17 @@ function pickQuestion() {
         monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
         questionDiv.innerHTML = pickedQuestion.q;
         console.log(pickedQuestion.correctAnswer);
-
+        monsterObjects.pop(pickedQuestion);
+        console.log(monsterObjects);
         return pickedQuestion;
+        }
+        else if (monsterObjects.length>0) {
+            monsterDiv.innerHTML = "<pre>" + sword + "</pre>";
+            final = true;
+        }
+        else if (monsterObjects.length>0 && final == true){
+            monsterDiv.innerHTML = "<pre>" + finalImage + "</pre>";
+        }
     })
 
 
