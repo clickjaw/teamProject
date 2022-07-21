@@ -127,9 +127,7 @@ function pickQuestion(){
 
         //below reads the value, for some reason the variable "input" (line 105) doesn't read the value.
         
-        // if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer){
-        //     console.log("finally fucking works");
-        // };
+        
 
         // below looks a mess but it works.
         //only issue is the clicks accumulate then register in the current score
