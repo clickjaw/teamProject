@@ -120,10 +120,11 @@ function pickQuestion() {
     console.log(pickedQuestion.correctAnswer);
 
     enterButton.addEventListener('click', function () {
+        clicks = 1;
 
         //below reads the value, for some reason the variable "input" (line 105) doesn't read the value.
 
-        if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
+        if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
             console.log("finally fucking works");
         };
 
@@ -141,7 +142,8 @@ function pickQuestion() {
         //if (input == pickedQuestion.correctAnswer) {
         if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer){
             currentScore = currentScore + 1;
-            console.log("Bop");
+            console.log("Here" + currentScore);
+            console.log("Here" + clicks);
             document.getElementById('scoreDivNumber').textContent = currentScore;
 
             if (currentScore > highScore) {
@@ -156,14 +158,17 @@ function pickQuestion() {
 
 
 monsterDiv.addEventListener('click', function () {
+    clicks++;
+    console.log(clicks);
+    if (clicks == 1){
     monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
     questionDiv.innerHTML = q2.text;
-    clicks++;
+    }
     console.log(clicks);
     if (clicks >= 2) {
         pickQuestion();
     }
-})
+});
 
 // checking the answer and adding to the score
 
@@ -180,7 +185,9 @@ monsterDiv.addEventListener('click', function () {
 
 //using the next button to reset reset reset reset reset 
 let reset = document.getElementById('resetButton');
-reset.addEventListener('click', function () {
+reset.addEventListener('click', function (e) {
+    e.preventDefault();
+    clicks = 0;
     currentScore = 0;
     document.getElementById('scoreDivNumber').textContent = "0";
 
@@ -190,18 +197,22 @@ reset.addEventListener('click', function () {
 
     //doesn't bring the second image up. Doesn't fully restart images
     monsterDiv.addEventListener('click', function () {
+        //clicks++;
+        console.log( "Yo" + clicks);
+        if (clicks == 1){
         monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
         questionDiv.innerHTML = q2.text;
-        clicks++;
+        }
         console.log(clicks);
         if (clicks >= 2) {
-            pickQuestion();
+            //pickQuestion();
         }
-    })
+    });
 })
 
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
 questionDiv.innerHTML = q1.text;
+
 
 //pickQuestion();
