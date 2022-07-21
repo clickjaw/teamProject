@@ -1,3 +1,4 @@
+
 body {
   background-color: black;
   color: white;
@@ -5,8 +6,25 @@ body {
   justify-content: center;
   font-family: "Press Start 2P", cursive;
 }
+::-webkit-scrollbar {
+  width:5px;
+  
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
+}
 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: green; 
+}
 
 #scoreDiv {
   border: dashed 2px green;
@@ -57,8 +75,8 @@ body {
   height: 500px;
   border: dashed 5px green;
   background-color: black;
-  color: purple;
 }
+
 #monsterDiv {
   display: grid;
   justify-content: center;
@@ -75,8 +93,8 @@ body {
   line-height:100%;
   z-index:2;
   animation-name:monsterAni;
-  animation-duration: 10s;
-  animation-iteration-count: 10;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
   /* animation: circle 6s linear infinite; */
   /* opacity:0.9; */
   /* background-color:blue; */
@@ -308,19 +326,20 @@ body {
   position:absolute;
   border: dashed 3px green;
   color:greenyellow;
-  font-size: 10px;
+  font-size: 14px;
   text-align: justify;
   max-width:500px;
-  max-height:100px;
+  height:150px;
+  max-height:150px;
   padding: 10px;
   overflow:auto;
   left:10px;
-  top:10px;
-  line-height: 175%;
+  top:12px;
+  line-height: 200%;
 
 
 }
-#answerDiv{
+/* #answerDiv{
   position: absolute;
   border: dashed 3px green;
   color:greenyellow;
@@ -332,27 +351,25 @@ body {
   bottom: 10px;
   left: 10px;
 
-
-
-}
+} */
 #inputBox{
   background-color:black;
   position:absolute;
   right: 20px;
-  bottom: 70px;
-  width:158px;
-  height: 25px;
+  bottom: 120px;
+  width:200px;
+  height: 40px;
   overflow:auto;
   color:greenyellow;
   text-decoration: none;
   border: dashed 3px green;
-  font-size: 24px;
+  font-size: 16px;
   font-family: inherit;
 }
 #buttonBox{
   position:absolute;
-  right: 20px;
-  bottom:20px;
+  right: 35px;
+  bottom:60px;
   font-family: inherit;
   text-decoration: none;
   background-color:black;
