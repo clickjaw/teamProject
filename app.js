@@ -116,19 +116,21 @@ function pickQuestion(){
     monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
     questionDiv.innerHTML = pickedQuestion.q;
     console.log(pickedQuestion.correctAnswer);
-    
+
     enterButton.addEventListener('click', function(){
 
         //below reads the value, for some reason the variable "input" (line 105) doesn't read the value.
-        //only issue is the clicks accumulate then register in the current score
-        //first click one point
-        //click a monster to move on then answer 2 points
-        //click a monster to move on then answer 3 points
+        
         if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer){
             console.log("finally fucking works");
         };
 
-        // below looks a mess but it works. Issue: read line 122
+        // below looks a mess but it works.
+        //only issue is the clicks accumulate then register in the current score
+        //first click one point
+        //click a monster to move on then answer 2 points
+        //click a monster to move on then answer 3 points
+        //the issue is with the clicks and not the logic, I think.
 
         // if (input = pickedQuestion.correctAnswer){
         //     currentScore++;
