@@ -157,10 +157,12 @@ function pickQuestion() {
 
 
 monsterDiv.addEventListener('click', function () {
-    monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
-    questionDiv.innerHTML = q2.text;
     clicks++;
-    console.log(clicks);
+    if (clicks == 1){
+        monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+        questionDiv.innerHTML = q2.text;
+        console.log(clicks);
+    }
     if (clicks >= 2) {
         pickQuestion();
     }
