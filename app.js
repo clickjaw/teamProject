@@ -62,7 +62,8 @@ let bigDoor =
  
 `;
 let clicks = 0;
-let monsterDiv = document.getElementById("monsterDiv")
+let monsterDiv = document.getElementById("monsterDiv");
+let questionDiv = document.getElementById("questionDiv");
 console.log(clicks)
 
 //document.getElementById('monsterDiv').innerHTML = "<pre>" + skeleton + "</pre>";
