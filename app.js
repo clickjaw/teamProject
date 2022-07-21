@@ -136,19 +136,20 @@ function pickQuestion() {
 
         // Not using ++ seemed to have fixed the problem
         // And had to use the above comparison to get a value out and read
-        // 
+
+        // Nvm worked for a second and broke again
 
         //if (input == pickedQuestion.correctAnswer) {
-        if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
-            currentScore = currentScore + 1;
-            console.log("Bop");
-            document.getElementById('scoreDivNumber').textContent = currentScore;
-
-            if (currentScore > highScore) {
-                highScore = currentScore;
-                document.getElementById('highScoreDivNumber').textContent = highScore
-            }
-        }
+        //if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
+        //    currentScore = currentScore + 1;
+        //    console.log("Bop");
+        //    console.log(currentScore);
+        //    document.getElementById('scoreDivNumber').textContent = currentScore;
+        //    if (currentScore > highScore) {
+        //        highScore = currentScore;
+        //        document.getElementById('highScoreDivNumber').textContent = highScore
+        //    }
+        //}
     })
 
 }
@@ -181,6 +182,8 @@ monsterDiv.addEventListener('click', function () {
 //using the next button to reset reset reset reset reset 
 let reset = document.getElementById('resetButton');
 reset.addEventListener('click', function () {
+    clicks = 0;
+    console.log(clicks);
     currentScore = 0;
     document.getElementById('scoreDivNumber').textContent = "0";
 
@@ -190,10 +193,13 @@ reset.addEventListener('click', function () {
 
     //doesn't bring the second image up. Doesn't fully restart images
     monsterDiv.addEventListener('click', function () {
-        monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
-        questionDiv.innerHTML = q2.text;
-        clicks++;
-        console.log(clicks);
+        // Fixed reset on intro pics
+        // Needed to reset the clicks and look for when clicks == 1
+        if (clicks == 1){
+            monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+            questionDiv.innerHTML = q2.text;
+            console.log(clicks);
+        }
         if (clicks >= 2) {
             pickQuestion();
         }
