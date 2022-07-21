@@ -116,9 +116,6 @@ function pickQuestion() {
     let rando = Math.floor(Math.random() * monsterObjects.length);
     let pickedQuestion = monsterObjects[rando];
     answerDiv.innerHTML = pickedQuestion.choices;
-
-    //it isn't random backgrounds but they do, in a way, match the "scenario". Gives it variation.
-    castleDiv.innerHTML = "<pre>" + pickedQuestion.background + "</pre>";
     monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
     questionDiv.innerHTML = pickedQuestion.q;
     console.log(pickedQuestion.correctAnswer);
@@ -136,7 +133,6 @@ function pickQuestion() {
         //click a monster to move on then answer 2 points
         //click a monster to move on then answer 3 points
         //the issue is with the clicks and not the logic, I think.
-
 
         // Not using ++ seemed to have fixed the problem
         // And had to use the above comparison to get a value out and read
@@ -167,7 +163,6 @@ monsterDiv.addEventListener('click', function () {
         console.log(clicks);
     }
     if (clicks >= 2) {
-
         pickQuestion();
     }
 })
@@ -213,7 +208,7 @@ reset.addEventListener('click', function () {
 })
 
 //using the next button to reset reset reset reset reset 
-let reset = document.getElementById('resetButton');
+reset = document.getElementById('resetButton');
 reset.addEventListener('click', function () {
     currentScore = 0;
     document.getElementById('scoreDivNumber').textContent = "0";
