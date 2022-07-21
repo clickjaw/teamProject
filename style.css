@@ -84,22 +84,6 @@ body {
   font-size: 10px;
   color: inherit;
   font-family: inherit;
-  font-weight:bold;
-  margin-right: 75px;
-  color: greenyellow;
-  margin-top:20px;
-  width:800px;
-  max-height: 500px;
-  line-height:100%;
-  z-index:2;
-  animation-name:monsterAni;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  /* animation: circle 6s linear infinite; */
-  /* opacity:0.9; */
-  /* background-color:blue; */
-}
-
 @keyframes monsterAni{
   0%   {left:0px; top:0px;}
   25%  {left:40; top:40px;}
@@ -391,6 +375,6 @@ body {
 
 
 /* maybe for later/ adding a small midi song to the page/ on-off switch */
-#speakerIcon{
+#speakerIcon {
   background-color: greenyellow;
 }
