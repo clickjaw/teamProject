@@ -101,6 +101,12 @@ monsterObjects.push(m6);
 monsterObjects.push(m7);
 // monsterObjects.push(m8);
 
+//connecting the input button and enter button - reset button is further down that resets the score
+let input = document.getElementById('inputBox').value;
+let enterButton = document.getElementById('enterButton');
+
+let currentScore = 0;
+let highScore = 0;
 
 
 function pickQuestion(){
@@ -111,8 +117,33 @@ function pickQuestion(){
     questionDiv.innerHTML = pickedQuestion.q;
     console.log(pickedQuestion.correctAnswer);
     
+    enterButton.addEventListener('click', function(){
 
+        //below reads the value, for some reason the variable "input" (line 105) doesn't read the value.
+        //only issue is the clicks accumulate then register in the current score
+        //first click one point
+        //click a monster to move on then answer 2 points
+        //click a monster to move on then answer 3 points
+        if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer){
+            console.log("finally fucking works");
+        };
+
+        // below looks a mess but it works. Issue: read line 122
+
+        // if (input = pickedQuestion.correctAnswer){
+        //     currentScore++;
+        //     document.getElementById('scoreDivNumber').textContent = currentScore;
+        
+        //     if (currentScore > highScore){
+        //         highScore = currentScore;
+        //         document.getElementById('highScoreDivNumber').textContent = highScore
+        //     }
+        // }
+    })
+    
 }
+
+
 
 monsterDiv.addEventListener('click', function(){
     monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
@@ -125,27 +156,38 @@ monsterDiv.addEventListener('click', function(){
 })
 
 // checking the answer and adding to the score
-let currentScore = 0;
-let highScore = 0;
 
-let enterButton = document.getElementById('enterButton');
-enterButton.addEventListener('click', function(){
-    currentScore++;
-    document.getElementById('scoreDivNumber').textContent = currentScore;
+// enterButton.addEventListener('click', function(){
+//     currentScore++;
+//     document.getElementById('scoreDivNumber').textContent = currentScore;
 
-    if (currentScore > highScore){
-        highScore = currentScore;
-        document.getElementById('highScoreDivNumber').textContent = highScore
+//     if (currentScore > highScore){
+//         highScore = currentScore;
+//         document.getElementById('highScoreDivNumber').textContent = highScore
+//     }
+// })
 
-    }
-})
 
-//using the next button to reset
-
+//using the next button to reset reset reset reset reset 
 let reset = document.getElementById('resetButton');
 reset.addEventListener('click', function(){
     currentScore = 0;
     document.getElementById('scoreDivNumber').textContent = "0";
+
+//brings the first image back up when reset clicked
+    monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
+    questionDiv.innerHTML = q1.text;
+
+//doesn't bring the second image up. Doesn't fully restart images
+    monsterDiv.addEventListener('click', function(){
+        monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+        questionDiv.innerHTML = q2.text;
+        clicks ++;
+        console.log(clicks);
+        if (clicks >= 2){
+            pickQuestion();
+        }
+    })
 })
 
 
