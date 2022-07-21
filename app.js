@@ -137,12 +137,14 @@ function pickQuestion() {
         let pickedQuestion = monsterObjects[rando];
 
         if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
+
             console.log("finally fucking works");
         };
 
 
         //checks the input for right answer
         if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
+
             currentScore = currentScore + 1;
             console.log("Bop");
             document.getElementById('scoreDivNumber').textContent = currentScore;
@@ -198,6 +200,7 @@ reset.addEventListener('click', function () {
     monsterDiv.addEventListener('click', function () {
         
         clicks = null;
+
     })
 })
 
