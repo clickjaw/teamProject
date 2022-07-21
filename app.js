@@ -121,16 +121,13 @@ function pickQuestion() {
 
     enterButton.addEventListener('click', function () {
 
-        //below reads the value, for some reason the variable "input" (line 105) doesn't read the value.
-<<<<<<< HEAD
+        // testing to see if clicks are set back to zero
         
-        
-=======
 
-        if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
+
+         if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
             console.log("finally fucking works");
         };
->>>>>>> 8263062e8c2531408b2d2510a1f137c0939cc6f8
 
         // below looks a mess but it works.
         //only issue is the clicks accumulate then register in the current score
