@@ -81,13 +81,13 @@ let introPics = [];
 let monsterObjects = [];
 let q1 = new Intro(castleOutside, "Out of the Unerbittlich Forest our Champion approaches Castle Nihil. Forged in the shadows of the endless night, he has come for his Eternity!");
 let q2 = new Intro(castleGates, "Approaching the gates wet with untouched dew, our Champion takes in the stench of those who came before. Draped in the cloak of night he strides into the certain doom of Castle Nihil.");
-let m1 = new Monster("You encounter a skeleton! He reels back for a swing with his axe!", "", skeleton);
-let m2 = new Monster("(Scenario goes here) What do you do?", "hide", reaper);
-let m3 = new Monster("(Scenario goes here) What do you do?", "hide", hornMonster);
-let m4 = new Monster("(Scenario goes here) What do you do?", "hide", demonMonster);
-let m5 = new Monster("(Scenario goes here) What do you do?", "hide", cyclops);
-let m6 = new Monster("(Scenario goes here) What do you do?", "hide", bigEye);
-let m7 = new Monster("(Scenario goes here) What do you do?", "hide", bigBat);
+let m1 = new Monster("Our champion hears the rattle of the Skeleton King. Should he swing his axe or barge through?", "swing", skeleton);
+let m2 = new Monster("From the depths of the dark a reaper emerges. It's shadow cast long by a solo torch. Does our champion swing his axe or this torch?", "torch", reaper);
+let m3 = new Monster("The cold stone is scraped by the battle hardened horns of the wandering great Netvor. The primal sound echoes through the hallway. Does our champion wield his strength against this mighty foe or keep silent as it passes?", "keep silent", hornMonster);
+let m4 = new Monster("The snarling is louder. The breath of the Demon Lord is lit by the moon's light. Should our champion confront the beast or hide?", "hide", demonMonster);
+let m5 = new Monster("The lumbering sound of the cyclop's step shakes the halls around Nihil. Does our champion swing for it's knees or run through its legs?", "swing", cyclops);
+let m6 = new Monster("The Abyss of the Known Unknown opens the Eye of All. The brightness of its iris illuminates the room. Does our champion approach in hopes of a vision of destiny or lie still in the shadows of Castle Nihil? ", "approach", bigEye);
+let m7 = new Monster("The shreik of the eternally nocturnal Fladdermus pierces through the walls of Nihil, alerting all who live that certain doom is upon them. Does our champion battle this wretched foe or dodge it's continuous swoops?", "dodge", bigBat);
 // let m8 = new Monster("(Scenario goes here) What do you do?", "hide", );
 //Pushing all created objects/strings to their respective arrays
 introPics.push(q1);
@@ -101,6 +101,8 @@ monsterObjects.push(m6);
 monsterObjects.push(m7);
 // monsterObjects.push(m8);
 
+
+
 function pickQuestion(){
     console.log("Play?");
     let rando = Math.floor(Math.random()*monsterObjects.length);
@@ -108,7 +110,10 @@ function pickQuestion(){
     monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
     questionDiv.innerHTML = pickedQuestion.q;
     console.log(pickedQuestion.correctAnswer);
+    
+
 }
+
 monsterDiv.addEventListener('click', function(){
     monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
     questionDiv.innerHTML = q2.text;
@@ -119,6 +124,29 @@ monsterDiv.addEventListener('click', function(){
     }
 })
 
+// checking the answer and adding to the score
+let currentScore = 0;
+let highScore = 0;
+
+let enterButton = document.getElementById('enterButton');
+enterButton.addEventListener('click', function(){
+    currentScore++;
+    document.getElementById('scoreDivNumber').textContent = currentScore;
+
+    if (currentScore > highScore){
+        highScore = currentScore;
+        document.getElementById('highScoreDivNumber').textContent = highScore
+
+    }
+})
+
+//using the next button to reset
+
+let reset = document.getElementById('resetButton');
+reset.addEventListener('click', function(){
+    currentScore = 0;
+    document.getElementById('scoreDivNumber').textContent = "0";
+})
 
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
