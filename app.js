@@ -73,6 +73,7 @@ function Monster(q, correctanswer, choices, image) {
     this.correctAnswer = correctanswer;
     this.choices = choices;
     this.image = image;
+    this.background = background;
 }
 function Intro(ascii, text) {
     this.ascii = ascii;
@@ -126,7 +127,6 @@ function pickQuestion() {
         if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
             console.log("finally fucking works");
         };
-
         // below looks a mess but it works.
         //only issue is the clicks accumulate then register in the current score
         //first click one point
@@ -151,7 +151,6 @@ function pickQuestion() {
         //    }
         //}
     })
-
 }
 
 
@@ -208,8 +207,34 @@ reset.addEventListener('click', function () {
     })
 })
 
+//using the next button to reset reset reset reset reset 
+reset = document.getElementById('resetButton');
+reset.addEventListener('click', function () {
+    currentScore = 0;
+    document.getElementById('scoreDivNumber').textContent = "0";
+    document.getElementById('inputBox').value = "";
+
+    //brings the first image back up when reset clicked
+    monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
+    questionDiv.innerHTML = q1.text;
+    castleDiv.innerHTML = null;
+
+    //doesn't bring the second image up. Doesn't fully restart images
+    monsterDiv.addEventListener('click', function () {
+        monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+        questionDiv.innerHTML = q2.text;
+        clicks = 0;
+        clicks ++;
+        console.log(clicks);
+        if (clicks >= 2) {
+            pickQuestion();
+        }
+    })
+})
+
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
+castleDiv.innerHTML =  null;  //"<pre>" + + "</pre>";
 questionDiv.innerHTML = q1.text;
 
 //pickQuestion();
