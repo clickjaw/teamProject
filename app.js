@@ -131,6 +131,9 @@ function pickQuestion() {
     let nextButton = document.getElementById('nextButton');
     nextButton.addEventListener('click', function nextButtonClick() {
 
+        // changes color back to orginal
+        document.getElementById('monsterDiv').style.color = "greenyellow";
+
         document.getElementById('inputBox').value = "";
         //this randomizes the array of monster objects - returning and splicing objects as they go so you only see every monster once
         if (monsterObjects.length > 0) {
@@ -151,6 +154,8 @@ function pickQuestion() {
                 document.getElementById('castleDiv').textContent = "Eternal Champion!";
                 document.getElementById('castleDiv').style.color = "#FFFFFF";
                 document.getElementById('inputBox').value = "CHAMPION!"
+                document.getElementById('questionDiv').textContent = "Our Champion has survived the night. The tumult and chaos of the fallen Castle Nihil was no match for his strength. Hail our Eternal Champion!"
+                document.getElementById('answerDiv').textContent = "";
 
             }
         }
@@ -166,17 +171,12 @@ function pickQuestion() {
 
         // checks the input for right answer
         if (document.getElementById('inputBox').value == ca) {
-
+            
+            document.getElementById('monsterDiv').style.color = "red";
             document.getElementById('inputBox').value = "You Survived";
             document.getElementById('inputBox').style.fontSize = "small";
             currentScore = currentScore + 1;
             document.getElementById('scoreDivNumber').textContent = currentScore;
-
-            // if (currentScore > highScore) {
-            //     highScore = currentScore;
-
-            //     document.getElementById('highScoreDivNumber').textContent = highScore
-            // }
 
 
             if (currentScore > parseInt(localStorage.getItem('highScore'))) {
@@ -191,6 +191,7 @@ function pickQuestion() {
             document.getElementById('castleDiv').textContent = "YOU DIED";
             document.getElementById('castleDiv').style.color = "#FFFFFF";
             document.getElementById('nextButton').disabled = true;
+            
 
         }
     })
