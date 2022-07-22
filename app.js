@@ -9,6 +9,7 @@ let questionDiv = document.getElementById("questionDiv");
 let castleDiv = document.getElementById("castleDiv");
 let preDoc = document.getElementById("preDoc");
 let scoreDiv = document.getElementById("scoreDiv");
+let cA = "";
 let bigCastle = String.raw`  ',                                                        ,'<br>  ',                                                    ,'<br>    :,                                                ,:<br>    : :,____________________________________________,: :<br>    : :-:       ..........        ..........       :-: :<br>    : :-:                   .    .'                :-: :<br>    : :-:    dHHHHHHHHHHHb        dHHHHHHHHHHHb    :-: :<br>    : :-:   dHHHHHHHHHHHHHb      dHHHHHHHHHHHHHb   :-: :<br>    : :-:   HHHHHHHHHHHHHHH      HHHHHHHHHHHHHHH   :-: :<br>    : :-:    HHHHHHHHHHHHHF       HHHHHHHHHHHHHF   :-: :<br>    : :-:     HHHHHHHHHF''.'.oo.'.'' HHHHHHHHHF    :-: :<br>    : :-:'.            ..'.dHHHHb.'..            .':-: :<br>    : :-:  ''...   ..''   HHHF'HHH  ''..   ...'' :-: :<br>    : :-:     / '''/      'HF  'HF      \\'''\     :-: :<br>    : :-:    /  .    ..              ..    .  \    :-: :<br>    : :/:    :.' '.''/\'............'/\''.' '.:    :\: :<br>    : :/:     :   :\/::\/\/\/^^\/\/\/::\/:   :     :\: :<br>    : :/:     :   ::::/^^^^^^^^^^^^^^\::::   :     :\: :<br>    : :/:     :   :::/^^^^^^^^^^^^^^^^\:::   :     :\: :<br>    : :/:     :   ::/^^^^^^^^^^^^^^^^^^\::   :     :\: :<br>    : :/:     :   :/^^^^^^^^^^^^^^^^^^^^\:   :     :\: :<br>    : :/:     '.  :AAAAAAAAAAAAAAAAAAAAAA:  .'     :\: :<br>    : :/:     :: :'                       :' :     :\: :<br>    : :/:     ::AAAAAAAAAAAAAAAAAAAAAAAAAAAA :     :\: :<br>    : :/:_____:/                            \:_____:\: :<br>    : :/:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \: :<br>    : ://                                          \\: :<br>    : :/                                            \: :<br>    :  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  :<br>    : /                                              \ :<br>    :/                                                \:<br>     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `;
 
 //starter images
@@ -124,6 +125,7 @@ function pickQuestion() {
         answerDiv.innerHTML = pickedQuestion.choices;
         monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
         questionDiv.innerHTML = pickedQuestion.q;
+        cA = pickedQuestion.correctAnswer;
         console.log(pickedQuestion.correctAnswer);
         monsterObjects.pop(pickedQuestion);
         console.log(monsterObjects);
@@ -146,8 +148,7 @@ function pickQuestion() {
         let rando = Math.floor(Math.random() * monsterObjects.length);
         let pickedQuestion = monsterObjects[rando];
 
-        if (document.getElementById('inputBox').value = pickedQuestion.correctAnswer) {
-
+        if (document.getElementById('inputBox').value == cA) {
             console.log("finally fucking works");
         };
 
