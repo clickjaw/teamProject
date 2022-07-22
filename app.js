@@ -9,11 +9,10 @@ let questionDiv = document.getElementById("questionDiv");
 let castleDiv = document.getElementById("castleDiv");
 let preDoc = document.getElementById("preDoc");
 let scoreDiv = document.getElementById("scoreDiv");
-let cA = "";
 let bigCastle = String.raw`  ',                                                        ,'<br>  ',                                                    ,'<br>    :,                                                ,:<br>    : :,____________________________________________,: :<br>    : :-:       ..........        ..........       :-: :<br>    : :-:                   .    .'                :-: :<br>    : :-:    dHHHHHHHHHHHb        dHHHHHHHHHHHb    :-: :<br>    : :-:   dHHHHHHHHHHHHHb      dHHHHHHHHHHHHHb   :-: :<br>    : :-:   HHHHHHHHHHHHHHH      HHHHHHHHHHHHHHH   :-: :<br>    : :-:    HHHHHHHHHHHHHF       HHHHHHHHHHHHHF   :-: :<br>    : :-:     HHHHHHHHHF''.'.oo.'.'' HHHHHHHHHF    :-: :<br>    : :-:'.            ..'.dHHHHb.'..            .':-: :<br>    : :-:  ''...   ..''   HHHF'HHH  ''..   ...'' :-: :<br>    : :-:     / '''/      'HF  'HF      \\'''\     :-: :<br>    : :-:    /  .    ..              ..    .  \    :-: :<br>    : :/:    :.' '.''/\'............'/\''.' '.:    :\: :<br>    : :/:     :   :\/::\/\/\/^^\/\/\/::\/:   :     :\: :<br>    : :/:     :   ::::/^^^^^^^^^^^^^^\::::   :     :\: :<br>    : :/:     :   :::/^^^^^^^^^^^^^^^^\:::   :     :\: :<br>    : :/:     :   ::/^^^^^^^^^^^^^^^^^^\::   :     :\: :<br>    : :/:     :   :/^^^^^^^^^^^^^^^^^^^^\:   :     :\: :<br>    : :/:     '.  :AAAAAAAAAAAAAAAAAAAAAA:  .'     :\: :<br>    : :/:     :: :'                       :' :     :\: :<br>    : :/:     ::AAAAAAAAAAAAAAAAAAAAAAAAAAAA :     :\: :<br>    : :/:_____:/                            \:_____:\: :<br>    : :/:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \: :<br>    : ://                                          \\: :<br>    : :/                                            \: :<br>    :  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  :<br>    : /                                              \ :<br>    :/                                                \:<br>     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `;
 
 //starter images
-let castleGates = String.raw`  ',                                                        ,'<br>  ',                                                    ,'<br>    :,                                                ,:<br>    : :,____________________________________________,: :<br>    : :-:       ..........        ..........       :-: :<br>    : :-:                   .    .'                :-: :<br>    : :-:    dHHHHHHHHHHHb        dHHHHHHHHHHHb    :-: :<br>    : :-:   dHHHHHHHHHHHHHb      dHHHHHHHHHHHHHb   :-: :<br>    : :-:   HHHHHHHHHHHHHHH      HHHHHHHHHHHHHHH   :-: :<br>    : :-:    HHHHHHHHHHHHHF       HHHHHHHHHHHHHF   :-: :<br>    : :-:     HHHHHHHHHF''.'.oo.'.'' HHHHHHHHHF    :-: :<br>    : :-:'.            ..'.dHHHHb.'..            .':-: :<br>    : :-:  ''...   ..''   HHHF'HHH  ''..   ...'' :-: :<br>    : :-:     / '''/      'HF  'HF      \\'''\     :-: :<br>    : :-:    /  .    ..              ..    .  \    :-: :<br>    : :/:    :.' '.''/\'............'/\''.' '.:    :\: :<br>    : :/:     :   :\/::\/\/\/^^\/\/\/::\/:   :     :\: :<br>    : :/:     :   ::::/^^^^^^^^^^^^^^\::::   :     :\: :<br>    : :/:     :   :::/^^^^^^^^^^^^^^^^\:::   :     :\: :<br>    : :/:     :   ::/^^^^^^^^^^^^^^^^^^\::   :     :\: :<br>    : :/:     :   :/^^^^^^^^^^^^^^^^^^^^\:   :     :\: :<br>    : :/:     '.  :AAAAAAAAAAAAAAAAAAAAAA:  .'     :\: :<br>    : :/:     :: :'                       :' :     :\: :<br>    : :/:     ::AAAAAAAAAAAAAAAAAAAAAAAAAAAA :     :\: :<br>    : :/:_____:/                            \:_____:\: :<br>    : :/:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \: :<br>    : ://                                          \\: :<br>    : :/                                            \: :<br>    :  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  :<br>    : /                                              \ :<br>    :/                                                \:<br>     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA `;
+let castleGates = String.raw`  ',                                                        ,'<br>  ',                                                    ,'<br>    :,                                                ,:<br>    : :,____________________________________________,: :<br>    : :-:       ..........        ..........       :-: :<br>    : :-:                   .    .'                :-: :<br>    : :-:    dHHHHHHHHHHHb        dHHHHHHHHHHHb    :-: :<br>    : :-:   dHHHHHHHHHHHHHb      dHHHHHHHHHHHHHb   :-: :<br>    : :-:   HHHHHHHHHHHHHHH      HHHHHHHHHHHHHHH   :-: :<br>    : :-:    HHHHHHHHHHHHHF       HHHHHHHHHHHHHF   :-: :<br>    : :-:     HHHHHHHHHF''.'.oo.'.'' HHHHHHHHHF    :-: :<br>    : :-:'.            ..'.dHHHHb.'..            .':-: :<br>    : :-:  ''...   ..''   HHHF'HHH  ''..   ...'' :-: :<br>    : :-:     / '''/      'HF  'HF      \\'''\     :-: :<br>    : :-:    /  .    ..              ..    .  \    :-: :<br>    : :/:    :.' '.''/\'............'/\''.' '.:    :\: :<br>    : :/:     :   :\/::\/\/\/^^\/\/\/::\/:   :     :\: :<br>    : :/:     :   ::::/^^^^^^^^^^^^^^\::::   :     :\: :<br>    : :/:     :   :::/^^^^^^^^^^^^^^^^\:::   :     :\: :<br>    : :/:     :   ::/^^^^^^^^^^^^^^^^^^\::   :     :\: :<br>    : :/:     :   :/^^^^^^^^^^^^^^^^^^^^\:   :     :\: :<br>    : :/:     '.  :AAAAAAAAAAAAAAAAAAAAAA:  .'     :\: :<br>    : :/:     :: :'                       :' :     :\: :<br>    : :/:     ::AAAAAAAAAAAAAAAAAAAAAAAAAAAA :     :\: :<br>    : :/:_____:/                            \:_____:\: :<br>    : :/:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \: :<br>    : ://                                          \\: :<br>    : :/                                            \: :<br>    :  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  :<br>    : /                                              \ :<br>    :/                                                \:<br>     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA <br><br>              PRESS NEXT TO ENTER CASTLE NIHIL`;
 let castleOutside = String.raw`                              .-----.<br>                            .'       '.<br>                           :      ^v^  :<br>                           :           :<br>                           '           '<br>            |~        www   \.       .'<br>           /.\       /#^^\_   '-/\--'<br>          /#  \     /#%    \   /# \<br>         /#%   \   /#%______\ /#%__\<br>        /#%     \   |= I I ||  |- |<br>        ~~|~~~|~~   |_=_-__|'  |[]|<br>          |[] |_______\__|/_ _ |= | .<br>   ^V^    |-  /= __   __    /-\|= | :;<br>          |= /- /\/  /\/   /=- \.-' :;<br>          | /_.=========._/_.-._\  .:'<br>          |= |-.'.- .'.- |  /|\ |.:'<br>          \  |=|:|= |:| =| |~|~||'|<br>           |~|-|:| -|:|  |-|~|~||=|      ^V^<br>           |=|=|:|- |:|- | |~|~|| |<br>           | |-_~__=_~__=|_^^^^^|/___<br>           |-(=-=-=-=-=-(|=====/=_-=/\<br>           | |=_-= _=- _=| -_=/=_-_/__\ <br>           | |- _ =_-  _-|=_- |]#| I II<br>           |=|_/ \_-_= - |- = |]#| I II<br>           | /  _/ \. -_=| =__|]!!!I_II!!<br>          _|/-'/  ' \_/ \|/' _ ^^^^'.==_^.<br>        _/  _/'-.'-; '-.\_ / \_'\''. ''. ===''.<br>       / .-'  __/_   '.   _/.' .-' '-. ; ====;\<br>       / .-'  __/_   '.   _/.' .-' '-. ; ====;\<br>      /.   './    \ '. \ / -  /  .-'.' ====='  ><br>     /  \  /  .-' '--.  / .' /  '-.' ======.' /`;
 
 //ascii monsters
@@ -69,11 +68,12 @@ console.log(clicks)
 //document.getElementById('monsterDiv').innerHTML = "<pre>" + skeleton + "</pre>";
 document.getElementById('castleDiv').innerHTML = "<pre>" + castleHallway + "</pre>";
 
-function Monster(q, correctanswer, choices, image) {
+function Monster(q, correctanswer, choices, image, background) {
     this.q = q;
     this.correctAnswer = correctanswer;
     this.choices = choices;
     this.image = image;
+    this.background = background;
 }
 function Intro(ascii, text) {
     this.ascii = ascii;
@@ -81,15 +81,18 @@ function Intro(ascii, text) {
 }
 let introPics = [];
 let monsterObjects = [];
+
+let ca = "";
+
 let q1 = new Intro(castleOutside, "Out of the Unerbittlich Forest our Champion approaches Castle Nihil. Forged in the shadows of the endless night, he has come for his Eternity!");
 let q2 = new Intro(castleGates, "Approaching the gates wet with untouched dew, our Champion takes in the stench of those who came before. Draped in the cloak of night he strides into the certain doom of Castle Nihil.");
-let m1 = new Monster("Our champion hears the rattle of the Skeleton King. Should he swing his axe or barge through?", "swing", "(swing) (barge)", skeleton);
-let m2 = new Monster("From the depths of the dark a reaper emerges. It's shadow cast long by a solo torch. Does our champion swing his axe or this torch?", "torch", "(swing) (torch)", reaper);
-let m3 = new Monster("The cold stone is scraped by the battle hardened horns of the wandering great Netvor. The primal sound echoes through the hallway. Does our champion wield his strength against this mighty foe or keep silent as it passes?", "keep silent", "(wield strength) (keep silent)", hornMonster);
-let m4 = new Monster("The snarling is louder. The breath of the Demon Lord is lit by the moon's light. Should our champion confront the beast or hide?", "hide", "(confront) (hide)", demonMonster);
-let m5 = new Monster("The lumbering sound of the cyclop's step shakes the halls around Nihil. Does our champion swing for it's knees or run through its legs?", "swing", "(run) (swing)", cyclops);
-let m6 = new Monster("The Abyss of the Known Unknown opens the Eye of All. The brightness of its iris illuminates the room. Does our champion approach in hopes of a vision of destiny or lie still in the shadows of Castle Nihil? ", "approach", "(lie still) (approach)", bigEye);
-let m7 = new Monster("The shriek of the eternally nocturnal Fladdermus pierces through the walls of Nihil, alerting all who live that certain doom is upon them. Does our champion battle this wretched foe or dodge it's continuous swoops?", "dodge", "(dodge) (battle)", bigBat);
+let m1 = new Monster("Our champion hears the rattle of the Skeleton King. Should he swing his axe or barge through?", "swing", "(swing) (barge)", skeleton, castleHallway);
+let m2 = new Monster("From the depths of the dark a reaper emerges. It's shadow cast long by a solo torch. Does our champion swing his axe or this torch?", "torch", "(swing) (torch)", reaper, castleRoom);
+let m3 = new Monster("The cold stone is scraped by the battle hardened horns of the wandering great Netvor. The primal sound echoes through the hallway. Does our champion wield his strength against this mighty foe or keep silent as it passes?", "keep silent", "(wield strength) (keep silent)", hornMonster, castleHallway);
+let m4 = new Monster("The snarling is louder. The breath of the Demon Lord is lit by the moon's light. Should our champion confront the beast or hide?", "hide", "(confront) (hide)", demonMonster, bigDoor);
+let m5 = new Monster("The lumbering sound of the cyclop's step shakes the halls around Nihil. Does our champion swing for it's knees or run through its legs?", "swing", "(run) (swing)", cyclops, castleDoorway);
+let m6 = new Monster("The Abyss of the Known Unknown opens the Eye of All. The brightness of its iris illuminates the room. Does our champion approach in hopes of a vision of destiny or lie still in the shadows of Castle Nihil? ", "approach", "(lie still) (approach)", bigEye, castleRoom);
+let m7 = new Monster("The shreik of the eternally nocturnal Fladdermus pierces through the walls of Nihil, alerting all who live that certain doom is upon them. Does our champion battle this wretched foe or dodge it's continuous swoops?", "dodge", "(dodge) (battle)", bigBat, castleDoorway);
 // let m8 = new Monster("(Scenario goes here) What do you do?", "hide", );
 //Pushing all created objects/strings to their respective arrays
 introPics.push(q1);
@@ -103,6 +106,11 @@ monsterObjects.push(m6);
 monsterObjects.push(m7);
 // monsterObjects.push(m8);
 
+
+
+
+
+
 //connecting the input button and enter button - reset button is further down that resets the score
 let input = document.getElementById('inputBox').value;
 let enterButton = document.getElementById('enterButton');
@@ -115,56 +123,46 @@ function pickQuestion() {
     //testing out next button
 
     let nextButton = document.getElementById('nextButton');
-    nextButton.addEventListener('click', function () {
-        let final = false;
-        if (monsterObjects.length>0){
-        console.log(clicks);
-        console.log("Play?");
+    nextButton.addEventListener('click', function nextButtonClick() {
+
         let rando = Math.floor(Math.random() * monsterObjects.length);
         let pickedQuestion = monsterObjects[rando];
         answerDiv.innerHTML = pickedQuestion.choices;
         monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
+        castleDiv.innerHTML = "<pre>" + pickedQuestion.background + "</pre";
         questionDiv.innerHTML = pickedQuestion.q;
-        cA = pickedQuestion.correctAnswer;
         console.log(pickedQuestion.correctAnswer);
-        monsterObjects.pop(pickedQuestion);
-        console.log(monsterObjects);
+
+        //sets the random answer to a variable
+        ca = pickedQuestion.correctAnswer;
+
+        console.log(pickedQuestion.correctAnswer);
+
         return pickedQuestion;
-        }
-        else if (monsterObjects.length>0) {
-            monsterDiv.innerHTML = "<pre>" + sword + "</pre>";
-            final = true;
-        }
-        //else if (monsterObjects.length>0 && final == true){
-        //    monsterDiv.innerHTML = "<pre>" + finalImage + "</pre>";
-        //}
     })
 
 
 
-    enterButton.addEventListener('click', function () {
-        
-        // testing to see if clicks are set back to zero
-        let rando = Math.floor(Math.random() * monsterObjects.length);
-        let pickedQuestion = monsterObjects[rando];
-
-        if (document.getElementById('inputBox').value == cA) {
-            console.log("finally fucking works");
-        };
+    enterButton.addEventListener('click', function enterButtonClick() {
 
 
-        //checks the input for right answer
-        if (document.getElementById('inputBox').value == pickedQuestion.correctAnswer) {
+
+        // checks the input for right answer
+        if (document.getElementById('inputBox').value == ca) {
 
             currentScore = currentScore + 1;
-            console.log("Here" + currentScore);
-            console.log("Here" + clicks);
             document.getElementById('scoreDivNumber').textContent = currentScore;
 
             if (currentScore > highScore) {
                 highScore = currentScore;
                 document.getElementById('highScoreDivNumber').textContent = highScore
             }
+        } else {
+            document.getElementById('monsterDiv').style.color = "#FFFFFF";
+            document.getElementById('castleDiv').style.backgroundColor = "#FF0000";
+            document.getElementById('castleDiv').textContent = "YOU DIED";
+            document.getElementById('castleDiv').style.color = "#FFFFFF";
+            document.getElementById('body').document.style.backgroundColor = "#FF0000";
         }
     })
 
@@ -173,56 +171,46 @@ function pickQuestion() {
 
 
 monsterDiv.addEventListener('click', function () {
-    clicks++;
-    console.log(clicks);
-    if (clicks == 1){
     monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
     questionDiv.innerHTML = q2.text;
-    }
+    clicks++;
     console.log(clicks);
     if (clicks >= 2) {
         pickQuestion();
         clicks = null;
     }
-});
-
-// checking the answer and adding to the score
-
-// enterButton.addEventListener('click', function(){
-//     currentScore++;
-//     document.getElementById('scoreDivNumber').textContent = currentScore;
-
-//     if (currentScore > highScore){
-//         highScore = currentScore;
-//         document.getElementById('highScoreDivNumber').textContent = highScore
-//     }
-// })
+})
 
 
 //using the next button to reset reset reset reset reset 
 let reset = document.getElementById('resetButton');
-reset.addEventListener('click', function (e) {
-    e.preventDefault();
-    clicks = 0;
+reset.addEventListener('click', function () {
     currentScore = 0;
     // clicks = 0;
+
+    //below resets the dom to the original css
     document.getElementById('scoreDivNumber').textContent = "0";
     document.getElementById('inputBox').value = '';
+    document.getElementById('monsterDiv').style.color = "greenyellow";
+    document.getElementById('castleDiv').style.backgroundColor = "black";
+    document.getElementById('castleDiv').textContent = '';
+    document.getElementById('castleDiv').style.color = "purple";
 
     //brings the first image back up when reset clicked
-    monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
-    questionDiv.innerHTML = q1.text;
+    monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
+    questionDiv.innerHTML = q2.text;
+    castleDiv.innerHTML = null;
 
     //doesn't bring the second image up. Doesn't fully restart images
     monsterDiv.addEventListener('click', function () {
-        
-        clicks = null;
 
+        clicks = null;
     })
 })
 
 
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
 questionDiv.innerHTML = q1.text;
+castleDiv.innerHTML = null;
 
 //pickQuestion();

@@ -20,15 +20,14 @@ body {
   font-size: 15px;
   font-family: inherit;
   padding: 5px;
-  z-index: 2;
+  z-index:2;
 }
 
-#scoreDivNumber {
-  position: absolute;
-  bottom: 10px;
+#scoreDivNumber{
+  position:absolute;
+  bottom:10px;
   right: 20px;
 }
-
 #highScoreDiv {
   border: dashed 2px green;
   color: greenyellow;
@@ -42,15 +41,14 @@ body {
   font-family: inherit;
   line-height: 130%;
   padding: 5px;
-  z-index: 2;
+  z-index:2;
 }
 
-#highScoreDivNumber {
-  position: absolute;
+#highScoreDivNumber{
+  position:absolute;
   bottom: 5px;
   right: 10px;
 }
-
 #artBox {
   display: grid;
   justify-content: center;
@@ -61,7 +59,6 @@ body {
   background-color: black;
   color: purple;
 }
-
 #monsterDiv {
   display: grid;
   justify-content: center;
@@ -69,62 +66,43 @@ body {
   font-size: 10px;
   color: inherit;
   font-family: inherit;
-  font-weight: bold;
+  font-weight:bold;
   margin-right: 75px;
   color: greenyellow;
-  margin-top: 20px;
-  width: 800px;
+  margin-top:20px;
+  width:800px;
   max-height: 500px;
-  line-height: 100%;
-  z-index: 2;
-  animation-name: monsterAni;
+  line-height:100%;
+  z-index:2;
+  animation-name:monsterAni;
   animation-duration: 10s;
-  animation-iteration-count: 10;
+  animation-iteration-count: infinite;
   /* animation: circle 6s linear infinite; */
   /* opacity:0.9; */
   /* background-color:blue; */
 }
 
-@keyframes monsterAni {
-  0% {
-    left: 0px;
-    top: 0px;
-  }
-
-  25% {
-    left: 40;
-    top: 40px;
-  }
-
-  50% {
-    left: 60px;
-    top: 60px;
-  }
-
-  75% {
-    left: -100px;
-    top: 80px;
-  }
-
-  100% {
-    left: 0px;
-    top: 0px;
-  }
+@keyframes monsterAni{
+  0%   {left:0px; top:0px;}
+  25%  {left:40; top:40px;}
+  50%  {left:60px; top:60px;}
+  75%  {left:-100px; top:80px;}
+  100% {left:0px; top:0px;}
 }
 
 #castleDiv {
-  z-index: 1;
+  z-index:1;
   display: grid;
   justify-content: center;
-  position: absolute;
+  position:absolute;
   /* background-size: cover; */
   font-size: 16px;
   color: purple;
   font-family: inherit;
   margin-right: 75px;
-  width: 800px;
-  height: 500px;
-  opacity: 0.6;
+  width:800px;
+  height:500px;
+  opacity:0.6;
   /* background-color:red; */
 }
 
@@ -132,195 +110,153 @@ body {
   0% {
     opacity: 0.27861;
   }
-
   5% {
     opacity: 0.34769;
   }
-
   10% {
     opacity: 0.23604;
   }
-
   15% {
     opacity: 0.90626;
   }
-
   20% {
     opacity: 0.18128;
   }
-
   25% {
     opacity: 0.83891;
   }
-
   30% {
     opacity: 0.65583;
   }
-
   35% {
     opacity: 0.67807;
   }
-
   40% {
     opacity: 0.26559;
   }
-
   45% {
     opacity: 0.84693;
   }
-
   50% {
     opacity: 0.96019;
   }
-
   55% {
     opacity: 0.08594;
   }
-
   60% {
     opacity: 0.20313;
   }
-
   65% {
     opacity: 0.71988;
   }
-
   70% {
     opacity: 0.53455;
   }
-
   75% {
     opacity: 0.37288;
   }
-
   80% {
     opacity: 0.71428;
   }
-
   85% {
     opacity: 0.70419;
   }
-
   90% {
     opacity: 0.7003;
   }
-
   95% {
     opacity: 0.36108;
   }
-
   100% {
     opacity: 0.24387;
   }
 }
-
 @keyframes textShadow {
   0% {
     text-shadow: 0.4389924193300864px 0 1px rgba(0, 30, 255, 0.5),
       -0.4389924193300864px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   5% {
     text-shadow: 2.7928974010788217px 0 1px rgba(0, 30, 255, 0.5),
       -2.7928974010788217px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   10% {
     text-shadow: 0.02956275843481219px 0 1px rgba(0, 30, 255, 0.5),
       -0.02956275843481219px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   15% {
     text-shadow: 0.40218538552878136px 0 1px rgba(0, 30, 255, 0.5),
       -0.40218538552878136px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   20% {
     text-shadow: 3.4794037899852017px 0 1px rgba(0, 30, 255, 0.5),
       -3.4794037899852017px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   25% {
     text-shadow: 1.6125630401149584px 0 1px rgba(0, 30, 255, 0.5),
       -1.6125630401149584px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   30% {
     text-shadow: 0.7015590085143956px 0 1px rgba(0, 30, 255, 0.5),
       -0.7015590085143956px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   35% {
     text-shadow: 3.896914047650351px 0 1px rgba(0, 30, 255, 0.5),
       -3.896914047650351px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   40% {
     text-shadow: 3.870905614848819px 0 1px rgba(0, 30, 255, 0.5),
       -3.870905614848819px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   45% {
     text-shadow: 2.231056963361899px 0 1px rgba(0, 30, 255, 0.5),
       -2.231056963361899px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   50% {
     text-shadow: 0.08084290417898504px 0 1px rgba(0, 30, 255, 0.5),
       -0.08084290417898504px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   55% {
     text-shadow: 2.3758461067427543px 0 1px rgba(0, 30, 255, 0.5),
       -2.3758461067427543px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   60% {
     text-shadow: 2.202193051050636px 0 1px rgba(0, 30, 255, 0.5),
       -2.202193051050636px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   65% {
     text-shadow: 2.8638780614874975px 0 1px rgba(0, 30, 255, 0.5),
       -2.8638780614874975px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   70% {
     text-shadow: 0.48874025155497314px 0 1px rgba(0, 30, 255, 0.5),
       -0.48874025155497314px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   75% {
     text-shadow: 1.8948491305757957px 0 1px rgba(0, 30, 255, 0.5),
       -1.8948491305757957px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   80% {
     text-shadow: 0.0833037308038857px 0 1px rgba(0, 30, 255, 0.5),
       -0.0833037308038857px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   85% {
     text-shadow: 0.09769827255241735px 0 1px rgba(0, 30, 255, 0.5),
       -0.09769827255241735px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   90% {
     text-shadow: 3.443339761481782px 0 1px rgba(0, 30, 255, 0.5),
       -3.443339761481782px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   95% {
     text-shadow: 2.1841838852799786px 0 1px rgba(0, 30, 255, 0.5),
       -2.1841838852799786px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
-
   100% {
     text-shadow: 2.6208764473832513px 0 1px rgba(0, 30, 255, 0.5),
       -2.6208764473832513px 0 1px rgba(255, 0, 80, 0.3), 0 0 3px;
   }
 }
-
 .crt::after {
   content: " ";
   display: block;
@@ -335,7 +271,6 @@ body {
   pointer-events: none;
   animation: flicker 0.2s infinite;
 }
-
 .crt::before {
   content: " ";
   display: block;
@@ -345,15 +280,16 @@ body {
   bottom: 0;
   right: 0;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(90deg,
+    linear-gradient(
+      90deg,
       rgba(255, 0, 0, 0.06),
       rgba(0, 255, 0, 0.02),
-      rgba(0, 0, 255, 0.06));
+      rgba(0, 0, 255, 0.06)
+    );
   z-index: 2;
   background-size: 100% 2px, 3px 100%;
   pointer-events: none;
 }
-
 .crt {
   animation: textShadow 1.7s infinite;
 }
@@ -368,61 +304,58 @@ body {
   background-color: black;
 }
 
-#questionDiv {
-  position: absolute;
+#questionDiv{
+  position:absolute;
   border: dashed 3px green;
-  color: greenyellow;
+  color:greenyellow;
   font-size: 10px;
   text-align: justify;
-  max-width: 500px;
-  max-height: 100px;
+  max-width:500px;
+  max-height:100px;
   padding: 10px;
-  overflow: auto;
-  left: 10px;
-  top: 10px;
+  overflow:auto;
+  left:10px;
+  top:10px;
   line-height: 175%;
 
 
 }
-
-#answerDiv {
+#answerDiv{
   position: absolute;
   border: dashed 3px green;
-  color: greenyellow;
-  text-align: center;
-  min-width: 500px;
-  max-width: 500px;
+  color:greenyellow;
+  text-align:center;
+  min-width:500px;
+  max-width:500px;
   max-height: 100px;
-  padding: 10px;
+  padding:10px;
   bottom: 10px;
   left: 10px;
 
 
 
 }
-
-#inputBox {
-  background-color: black;
-  position: absolute;
+#inputBox{
+  background-color:black;
+  position:absolute;
   right: 20px;
   bottom: 70px;
-  width: 158px;
+  width:158px;
   height: 25px;
-  overflow: auto;
-  color: greenyellow;
+  overflow:auto;
+  color:greenyellow;
   text-decoration: none;
   border: dashed 3px green;
   font-size: 24px;
   font-family: inherit;
 }
-
-#buttonBox {
-  position: absolute;
+#buttonBox{
+  position:absolute;
   right: 20px;
-  bottom: 20px;
+  bottom:20px;
   font-family: inherit;
   text-decoration: none;
-  background-color: black;
+  background-color:black;
 }
 
  #nextButton{
@@ -435,22 +368,21 @@ body {
  
  
 .button{
-
   background-color: green;
-  font-family: inherit;
-  color: black;
+  font-family:inherit;
+  color:black;
   border: dashed 3px green;
   padding: 5px;
 }
 
-.button:hover {
-  background-color: black;
-  color: green;
-  font-family: inherit;
+.button:hover{
+  background-color:black;
+  color:green;
+  font-family:inherit;
 }
 
 
 /* maybe for later/ adding a small midi song to the page/ on-off switch */
-#speakerIcon {
+#speakerIcon{
   background-color: greenyellow;
 }
