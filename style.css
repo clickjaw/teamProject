@@ -308,7 +308,7 @@ body {
   position:absolute;
   border: dashed 3px green;
   color:greenyellow;
-  font-size: 10px;
+  font-size: 12px;
   text-align: justify;
   max-width:500px;
   max-height:100px;
@@ -346,7 +346,7 @@ body {
   color:greenyellow;
   text-decoration: none;
   border: dashed 3px green;
-  font-size: 24px;
+  font-size: small;
   font-family: inherit;
 }
 #buttonBox{
@@ -358,13 +358,11 @@ body {
   background-color:black;
 }
 
- #nextButton{
+ #resetButton{
    position: absolute;
    right: 10px;
    top: 10px;
  }
- 
- 
  
  
 .button{
@@ -379,10 +377,4 @@ body {
   background-color:black;
   color:green;
   font-family:inherit;
-}
-
-
-/* maybe for later/ adding a small midi song to the page/ on-off switch */
-#speakerIcon{
-  background-color: greenyellow;
 }

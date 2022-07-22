@@ -4,6 +4,10 @@
 // image
 // scenario
 // correct answer
+
+// window.addEventListener('load', () => {
+
+
 let questionPic = document.getElementById("question-pic");
 let questionDiv = document.getElementById("questionDiv");
 let castleDiv = document.getElementById("castleDiv");
@@ -81,7 +85,9 @@ function Intro(ascii, text) {
 }
 let introPics = [];
 let monsterObjects = [];
-
+let finalArray = [];
+finalArray.push(sword);
+finalArray.push(finalImage);
 let ca = "";
 
 let q1 = new Intro(castleOutside, "Out of the Unerbittlich Forest our Champion approaches Castle Nihil. Forged in the shadows of the endless night, he has come for his Eternity!");
@@ -117,28 +123,39 @@ let enterButton = document.getElementById('enterButton');
 
 let currentScore = 0;
 let highScore = 0;
+localStorage.setItem('highScore', 0);
 
 
 function pickQuestion() {
     //testing out next button
-
     let nextButton = document.getElementById('nextButton');
     nextButton.addEventListener('click', function nextButtonClick() {
 
-        let rando = Math.floor(Math.random() * monsterObjects.length);
-        let pickedQuestion = monsterObjects[rando];
-        answerDiv.innerHTML = pickedQuestion.choices;
-        monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
-        castleDiv.innerHTML = "<pre>" + pickedQuestion.background + "</pre";
-        questionDiv.innerHTML = pickedQuestion.q;
-        console.log(pickedQuestion.correctAnswer);
+        document.getElementById('inputBox').value = "";
+        //this randomizes the array of monster objects - returning and splicing objects as they go so you only see every monster once
+        if (monsterObjects.length > 0) {
+            let rando = Math.floor(Math.random() * monsterObjects.length);
+            let pickedQuestion = monsterObjects[rando];
+            answerDiv.innerHTML = pickedQuestion.choices;
+            monsterDiv.innerHTML = "<pre>" + pickedQuestion.image + "</pre>";
+            castleDiv.innerHTML = "<pre>" + pickedQuestion.background + "</pre";
+            questionDiv.innerHTML = pickedQuestion.q;
+            console.log(pickedQuestion.correctAnswer);
+            ca = pickedQuestion.correctAnswer;
+            monsterObjects.splice(rando, 1);
+        }
+        else {
+            for (let i = 0; i < finalArray.length; i++) {
+                console.log(finalArray);
+                monsterDiv.innerHTML = "<pre>" + finalArray[i] + "</pre>";
+                document.getElementById('castleDiv').textContent = "Eternal Champion!";
+                document.getElementById('castleDiv').style.color = "#FFFFFF";
+                document.getElementById('inputBox').value = "CHAMPION!"
 
-        //sets the random answer to a variable
-        ca = pickedQuestion.correctAnswer;
+            }
+        }
 
-        console.log(pickedQuestion.correctAnswer);
 
-        return pickedQuestion;
     })
 
 
@@ -150,19 +167,31 @@ function pickQuestion() {
         // checks the input for right answer
         if (document.getElementById('inputBox').value == ca) {
 
+            document.getElementById('inputBox').value = "You Survived";
+            document.getElementById('inputBox').style.fontSize = "small";
             currentScore = currentScore + 1;
             document.getElementById('scoreDivNumber').textContent = currentScore;
 
-            if (currentScore > highScore) {
-                highScore = currentScore;
-                document.getElementById('highScoreDivNumber').textContent = highScore
+            // if (currentScore > highScore) {
+            //     highScore = currentScore;
+
+            //     document.getElementById('highScoreDivNumber').textContent = highScore
+            // }
+
+
+            if (currentScore > parseInt(localStorage.getItem('highScore'))) {
+                localStorage.setItem('highScore', currentScore);
+                document.getElementById('highScoreDivNumber').textContent = localStorage.getItem('highScore');
             }
         } else {
+            document.getElementById('inputBox').value = "You Died"
             document.getElementById('monsterDiv').style.color = "#FFFFFF";
             document.getElementById('castleDiv').style.backgroundColor = "#FF0000";
+            document.getElementById('castleDiv').style.fontSize = "xx-large";
             document.getElementById('castleDiv').textContent = "YOU DIED";
             document.getElementById('castleDiv').style.color = "#FFFFFF";
-            document.getElementById('body').document.style.backgroundColor = "#FF0000";
+            document.getElementById('nextButton').disabled = true;
+
         }
     })
 
@@ -171,6 +200,7 @@ function pickQuestion() {
 
 
 monsterDiv.addEventListener('click', function () {
+    clicks = 1;
     monsterDiv.innerHTML = "<pre>" + castleGates + "</pre>";
     questionDiv.innerHTML = q2.text;
     clicks++;
@@ -185,14 +215,27 @@ monsterDiv.addEventListener('click', function () {
 //using the next button to reset reset reset reset reset 
 let reset = document.getElementById('resetButton');
 reset.addEventListener('click', function () {
+    document.getElementById('nextButton').disabled = false;
+    monsterObjects = [m1,m2,m3,m4,m5,m6,m7];
+    console.log(monsterObjects);
+    //monsterObjects.push(m1);
+    //monsterObjects.push(m2);
+    //monsterObjects.push(m3);
+    //monsterObjects.push(m4);
+    //monsterObjects.push(m5);
+    //monsterObjects.push(m6);
+    //monsterObjects.push(m7);
+    //console.log(monsterObjects);
+
     currentScore = 0;
-    // clicks = 0;
 
     //below resets the dom to the original css
     document.getElementById('scoreDivNumber').textContent = "0";
     document.getElementById('inputBox').value = '';
     document.getElementById('monsterDiv').style.color = "greenyellow";
     document.getElementById('castleDiv').style.backgroundColor = "black";
+    document.getElementById('castleDiv').style.fontSize = "120%";
+    document.getElementById('answerDiv').textContent = "";
     document.getElementById('castleDiv').textContent = '';
     document.getElementById('castleDiv').style.color = "purple";
 
@@ -201,16 +244,18 @@ reset.addEventListener('click', function () {
     questionDiv.innerHTML = q2.text;
     castleDiv.innerHTML = null;
 
-    //doesn't bring the second image up. Doesn't fully restart images
+    //this nulls the click in the div that was multiplying the click counter
     monsterDiv.addEventListener('click', function () {
 
         clicks = null;
     })
+
 })
 
-
+//starter image
 monsterDiv.innerHTML = "<pre>" + castleOutside + "</pre>";
 questionDiv.innerHTML = q1.text;
 castleDiv.innerHTML = null;
 
 //pickQuestion();
+// });
