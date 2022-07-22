@@ -135,9 +135,9 @@ function pickQuestion() {
             monsterDiv.innerHTML = "<pre>" + sword + "</pre>";
             final = true;
         }
-        else if (monsterObjects.length>0 && final == true){
-            monsterDiv.innerHTML = "<pre>" + finalImage + "</pre>";
-        }
+        //else if (monsterObjects.length>0 && final == true){
+        //    monsterDiv.innerHTML = "<pre>" + finalImage + "</pre>";
+        //}
     })
 
 
